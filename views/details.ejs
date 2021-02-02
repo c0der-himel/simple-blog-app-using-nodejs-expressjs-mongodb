@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('./partials/head.ejs') %>
+  <!-- Head -->
+
+  <body>
+    <!-- Navbar -->
+    <%- include('./partials/navbar.ejs') %>
+    <!-- Navbar -->
+
+    <!-- Main -->
+    <!-- Blogs -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="blogs my-5 pt-5">
+            <h1><u>All Blogs</u></h1>
+          </div>
+        </div>
+        <div class="col">
+          <div class="blogs-content mb-4 px-5 py-4 shadow-lg rounded-3">
+            <div class="blog-title">
+              <a
+                data-id="<%= blog._id %> "
+                id="delete"
+                class="btn btn-dark float-end text-white"
+                >Delete</a
+              >
+              <h2><%= blog.title %></h2>
+              <hr />
+            </div>
+            <div class="blog-content">
+              <p><%= blog.body %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Blogs -->
+    <!-- Main -->
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+    <!-- Footer -->
+
+    <!-- JS -->
+    <script>
+      const trash = document.getElementById('delete');
+
+      trash.addEventListener('click', (e) => {
+        const id = `/blogs/${trash.dataset.id}`;
+
+        fetch(id, { method: 'DELETE' })
+          .then((res) => res.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    </script>
+    <!-- JS -->
+  </body>
+</html>

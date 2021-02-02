@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <%- include('./partials/head.ejs') %>
+  <!-- Head -->
+
+  <body>
+    <!-- Navbar -->
+    <%- include('./partials/navbar.ejs') %>
+    <!-- Navbar -->
+
+    <!-- Main -->
+    <!-- Blogs -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="blogs my-5 pt-5">
+            <h1><u>All Blogs</u></h1>
+          </div>
+        </div>
+        <div class="col-6 offset-3">
+          <% if(blogs.length > 0) { %> <% blogs.forEach((blog) => { %>
+          <div class="blogs-content mb-4 px-5 py-4 shadow-lg rounded-3">
+            <a href="/blogs/<%= blog._id %>">
+              <h3><%= blog.title %></h3>
+              <p><%= blog.snippet %></p>
+            </a>
+          </div>
+          <% }) %> <% } else { %>
+          <p
+            class="lead alert alert-warning m-5 p-3 shadow rounded-3 text-center"
+          >
+            There are no blogs to show . . .
+          </p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- Blogs -->
+    <!-- Main -->
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+    <!-- Footer -->
+  </body>
+</html>

@@ -20,11 +20,12 @@
               <hr />
             </div>
             <div class="blog-content">
-              <form>
+              <form action="/blogs" method="POST">
                 <div class="mb-3">
                   <label for="title" class="form-label">Blog Title</label>
                   <input
                     type="text"
+                    name="title"
                     id="title"
                     class="form-control"
                     placeholder="Enter Blog Title . . ."
@@ -35,6 +36,7 @@
                   <label for="snippet" class="form-label">Blog Snippet</label>
                   <input
                     type="text"
+                    name="snippet"
                     id="snippet"
                     class="form-control"
                     placeholder="Enter Blog Snippet . . ."
@@ -44,6 +46,7 @@
                 <div class="mb-3">
                   <label for="body" class="form-label">Blog Body</label>
                   <textarea
+                    name="body"
                     id="body"
                     cols="30"
                     rows="7"
